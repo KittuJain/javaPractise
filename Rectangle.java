@@ -39,18 +39,15 @@ class Square implements Mensuration{
 class Program{
 	public static void main(String[] args) {
 		int length = 2, breadth = 2, side = 3;
-
-		Rectangle rect = new Rectangle(length,breadth);
-		Square sq = new Square(side);
-		
-		int perimeterOfRect = rect.calculatePerimeter();
-		int areaOfRect = rect.calculateArea();
-		int perimeterOfSq = sq.calculatePerimeter();
-		int areaOfSq = sq.calculateArea();
-
-		System.out.println("perimeterOfRect of "+length + " and " + breadth +" is "+perimeterOfRect);
-		System.out.println("areaOfRect of "+length + " and " + breadth +" is "+ areaOfRect);
-		System.out.println("perimeterOfSQ of "+side +" is "+perimeterOfSq);
-		System.out.println("areaOfSQ of "+side +" is "+ areaOfSq);
+		Mensuration[] shapes = {
+			new Rectangle(length,breadth),
+			new Square(side)
+		};
+		for(Mensuration shape : shapes){
+			int perimeter = shape.calculatePerimeter();
+			int area = shape.calculateArea();
+			System.out.println(perimeter);
+			System.out.println(area);
+		}
 	}
 }
